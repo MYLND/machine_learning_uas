@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Load dataset
-data = pd.read_csv('Phising_dataset.csv', encoding='windows-1254')
+data = pd.read_csv('/content/Phising_dataset.csv', encoding='windows-1254')
 
 # Drop index column
 data = data.drop(['URL'], axis=1)
@@ -42,16 +42,15 @@ st.write(data.head())
 
 # Phishing count pie chart
 st.subheader("Phishing URL Count")
-fig1, ax1 = plt.subplots()
+fig1, ax1 = plt.subplots(figsize=(5, 5))  # Adjusted figure size
 data['Result'].value_counts().plot(kind='pie', autopct='%1.2f%%', ax=ax1)
 plt.title("Phishing URL Count")
 st.pyplot(fig1)
 
 # Confusion matrix heatmap
 st.subheader("Confusion Matrix for Naive Bayes Model")
-fig2, ax2 = plt.subplots()
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=[
-            "Predicted -1", "Predicted 1"], yticklabels=["True -1", "True 1"], ax=ax2)
+fig2, ax2 = plt.subplots(figsize=(5, 4))  # Adjusted figure size
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["Predicted -1", "Predicted 1"], yticklabels=["True -1", "True 1"], ax=ax2)
 plt.title("Confusion Matrix")
 plt.xlabel("Predicted Labels")
 plt.ylabel("True Labels")
