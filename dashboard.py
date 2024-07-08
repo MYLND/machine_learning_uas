@@ -42,14 +42,14 @@ st.write(data.head())
 
 # Phishing count pie chart
 st.subheader("Phishing URL Count")
-fig1, ax1 = plt.subplots(figsize=(5, 5))  # Adjusted figure size
+fig1, ax1 = plt.subplots(figsize=(2, 2))  # Adjusted figure size
 data['Result'].value_counts().plot(kind='pie', autopct='%1.2f%%', ax=ax1)
 plt.title("Phishing URL Count")
 st.pyplot(fig1)
 
 # Confusion matrix heatmap
 st.subheader("Confusion Matrix for Naive Bayes Model")
-fig2, ax2 = plt.subplots(figsize=(5, 4))  # Adjusted figure size
+fig2, ax2 = plt.subplots(figsize=(3, 2))  # Adjusted figure size
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["Predicted -1", "Predicted 1"], yticklabels=["True -1", "True 1"], ax=ax2)
 plt.title("Confusion Matrix")
 plt.xlabel("Predicted Labels")
